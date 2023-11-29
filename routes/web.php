@@ -22,6 +22,12 @@ Route::get('/migrate', function(){
      ]);
     dd('migrated!');
 });
+Route::get('/key-generate', function(){
+    Artisan::call('key:generate', [
+        '--force' => true
+     ]);
+    dd('generated!');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
